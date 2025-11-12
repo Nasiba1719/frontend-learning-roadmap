@@ -12,8 +12,9 @@ function Counter() {
   };
 
   return (
+    <div classname = "container">
     <div className="counter-container">
-      <h2 className="title">Sayı: </h2>
+      <h2 className="title">Counter</h2>
       <h1
         key={count} 
         className="count bounce"
@@ -28,7 +29,10 @@ function Counter() {
         <button onClick={() => setCount(0)}>🔁 Sıfırla</button>
       </div>
     </div>
+      </div>
   );
+
 }
+
 
 export default Counter;
