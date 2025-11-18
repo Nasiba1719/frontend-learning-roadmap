@@ -1,0 +1,20 @@
+* { box-sizing: border-box; }
+.app { min-height: 100vh; padding: 24px; font-family: system-ui, sans-serif; }
+
+.app.light { background: #f7f7f8; color: #32415f; }
+.app.dark  { background: #32415f; color: #f5f6f8; }
+
+.card { background: rgba(255,255,255,0.9); padding: 16px; border-radius: 16px; }
+.app.dark .card { background: rgba(255,255,255,0.06); }
+
+.row-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+.profile { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; margin-top: 16px; }
+
+.avatar img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; display: block; }
+
+.btn { padding: 8px 12px; border-radius: 10px; border: 1px solid #999; background: transparent; cursor: pointer; }
+.btn:hover { opacity: 0.8; }
+.btn.ghost { border-color: #666; }
+.info h3 { margin: 0 0 6px; }
+.info p  { margin: 0; opacity: 0.8; }
