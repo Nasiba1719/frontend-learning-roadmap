@@ -10,6 +10,9 @@ export default function App({ Component, pageProps }) {
         <Link className="text-gray-700 hover:text-blue-600" href="/contact">Contact</Link>
         <Link className="text-gray-700 hover:text-blue-600" href="/server-posts">Server Posts</Link>
         <Link className="text-gray-700 hover:text-blue-600" href="/static-users">Static Users</Link>
+        <Link href="/client-users">Client Users</Link>
+        <Link href="/client-posts">Client Posts</Link>
+
       </nav>
 
       <div className="max-w-4xl mx-auto mt-10">
