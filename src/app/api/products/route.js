@@ -9,15 +9,22 @@ export async function GET(request) {
   const minPrice = searchParams.get("minPrice");
   const maxPrice = searchParams.get("maxPrice");
 
-  const allProducts = await getAllProducts();
+  try {
+    const allProducts = await getAllProducts();
 
-  const products = filterProductsInMemory(allProducts, {
-    search,
-    category,
-    minPrice: minPrice ? Number(minPrice) : undefined,
-    maxPrice: maxPrice ? Number(maxPrice) : undefined,
-  });
+    const products = filterProductsInMemory(allProducts, {
+      search,
+      category,
+      minPrice: minPrice ? Number(minPrice) : undefined,
+      maxPrice: maxPrice ? Number(maxPrice) : undefined,
+    });
 
-  return NextResponse.json(products);
+    return NextResponse.json(products);
+  } catch (error) {
+    console.error("API /products error:", error);
+    return NextResponse.json(
+      { error: "Failed to load products" },
+      { status: 500 }
+    );
+  }
 }
-

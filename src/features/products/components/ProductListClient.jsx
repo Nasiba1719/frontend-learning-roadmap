@@ -25,6 +25,11 @@ export function ProductListClient({ initialProducts }) {
         const url = query ? `/api/products?${query}` : `/api/products`;
 
         const res = await fetch(url);
+        if (!res.ok) {
+          console.error("Product fetch failed with status:", res.status);
+          setProducts([]);
+          return;
+        }
         const data = await res.json();
         setProducts(data);
       } catch (error) {
