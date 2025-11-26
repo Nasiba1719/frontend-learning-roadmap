@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { API_BASE_URL } from "@/lib/config";
 import { ProductCard } from "./ProductCard";
 import { ProductGridSkeleton } from "./ProductGridSkeleton";
 
@@ -23,9 +22,7 @@ export function ProductListClient({ initialProducts }) {
         if (category) params.set("category", category);
 
         const query = params.toString();
-        const url = query
-          ? `${API_BASE_URL}/api/products?${query}`
-          : `${API_BASE_URL}/api/products`;
+        const url = query ? `/api/products?${query}` : `/api/products`;
 
         const res = await fetch(url);
         const data = await res.json();

@@ -5,7 +5,13 @@ import { HeroSlider } from "@/features/home/components/HeroSlider";
 import { ProductGridSkeleton } from "@/features/products/components/ProductGridSkeleton";
 
 export default async function Home() {
-  const initialProducts = await getAllProducts();
+  let initialProducts = [];
+  try {
+    initialProducts = await getAllProducts();
+  } catch (error) {
+    console.error("Home products fetch error:", error);
+    initialProducts = [];
+  }
 
   return (
     <div className="space-y-5 sm:space-y-6">

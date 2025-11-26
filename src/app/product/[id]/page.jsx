@@ -4,8 +4,14 @@ import { ProductGridSkeleton } from "@/features/products/components/ProductGridS
 import Link from "next/link";
 
 export async function generateStaticParams() {
-  const products = await getAllProducts();
-  return products.map((p) => ({ id: p.id }));
+  try {
+    const products = await getAllProducts();
+    return products.map((p) => ({ id: p.id }));
+  } catch (error) {
+    console.error("generateStaticParams products fetch error:", error);
+    // Xarici API əlçatmaz olanda build-in çökməməsi üçün boş siyahı qaytarırıq
+    return [];
+  }
 }
 
 export default async function ProductDetailPage(props) {
